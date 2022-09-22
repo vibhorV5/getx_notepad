@@ -36,6 +36,7 @@ class _EditorScreenState extends State<EditorScreen> {
                 Get.find<EditorService>().textEditingController.text;
             Get.find<EditorService>().saveTextForHomeScreen(
                 Get.find<EditorService>().textEditingController.text);
+
             FocusScope.of(context).unfocus();
             Get.snackbar(
               'Note Added',

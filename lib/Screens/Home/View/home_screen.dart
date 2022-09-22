@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:getx_notepad/Routes/routes.dart';
 import 'package:getx_notepad/Services/Editor/editor_service.dart';
 
@@ -11,6 +12,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // final box = GetStorage();
+
+  // int counter = 0;
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   setState(() {
+  //     counter = box.read('counter') ?? 0;
+  //   });
+  // }
+
+  // increase() {
+  //   setState(() {
+  //     counter++;
+  //     box.write('counter', counter);
+  //   });
+  // }
+
   final editorService = Get.put(EditorService());
 
   @override
@@ -44,6 +65,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Container(
+              //   height: 100,
+              //   width: 400,
+              //   color: Colors.blue,
+              //   child: Text('${box.read('counter')}'),
+              // ),
+              // TextButton(onPressed: increase, child: Text('Button')),
               Get.find<EditorService>().homeScreenText.isEmpty
                   ? Container(
                       alignment: Alignment.center,
