@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+// import 'package:get_storage/get_storage.dart';
 import 'package:getx_notepad/Routes/routes.dart';
 import 'package:getx_notepad/Services/Editor/editor_service.dart';
 
@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // @override
   // void initState() {
-  //   // TODO: implement initState
   //   super.initState();
   //   setState(() {
   //     counter = box.read('counter') ?? 0;

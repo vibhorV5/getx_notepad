@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_notepad/Routes/routes.dart';
 import 'package:getx_notepad/Services/Editor/editor_service.dart';
 
 class EditorScreen extends StatefulWidget {
@@ -31,21 +32,42 @@ class _EditorScreenState extends State<EditorScreen> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          onPressed: () {
+          onPressed: () async {
             Get.find<EditorService>().textAdded.value =
                 Get.find<EditorService>().textEditingController.text;
             Get.find<EditorService>().saveTextForHomeScreen(
                 Get.find<EditorService>().textEditingController.text);
 
             FocusScope.of(context).unfocus();
+            await Future.delayed(
+              const Duration(milliseconds: 200),
+              () {
+                debugPrint('Delayed execution done');
+              },
+            );
             Get.snackbar(
               'Note Added',
-              'Navigate to Home Screen to see the note',
+              'Navigating to the Home Screen',
+              icon: const Icon(
+                Icons.check,
+                color: Colors.green,
+              ),
               snackPosition: SnackPosition.BOTTOM,
               duration: const Duration(
-                milliseconds: 1000,
+                milliseconds: 1500,
               ),
             );
+            await Future.delayed(
+              const Duration(seconds: 1),
+              () {
+                debugPrint('Delayed execution done');
+              },
+            );
+            Get.find<EditorService>().textEditingController.clear();
+
+            Get.offAllNamed(home);
+            // Get.toNamed(home);
+            // Get.back();
           },
         ),
       ),
